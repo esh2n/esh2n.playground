@@ -1,0 +1,53 @@
+version: '3.7'
+
+services:
+  frontend:
+    # depends_on:
+    # - api
+    # - api_mongo
+    build:
+      context: ./frontend
+    container_name: frontend
+    command: yarn dev
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./frontend/src:/usr/app/src
+    ports:
+      - '3000:3000'
+#   api:
+#     depends_on:
+#       - api_mongo
+#     build:
+#       context: ./api
+#     container_name: api
+#     environment:
+#       - PORT=3001
+#       - URL="http://localhost"
+#       - MONGO_URL="mongodb://api_mongo:27017"
+#     command: start
+#     volumes:
+#       - ./api/src:/usr/app/src
+#     # ports:
+#     #   - '3001:3001'
+
+#   api_mongo:
+#     image: mongo:latest
+#     container_name: api_mongo
+#     volumes:
+#       - mongodb_api:/data/db
+#     ports:
+#       - '27017:27017'
+
+#   nginx:
+#     image: nginx:1.18.0-alpine
+#     ports:
+#       - '8080:80'
+#     volumes:
+#       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+#     depends_on:
+#       - api
+#       - frontend
+
+# volumes:
+#   mongodb_api:
