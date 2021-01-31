@@ -1,0 +1,9 @@
+{
+  "name": "tips.gg",
+  "short_name": "tips.gg",
+  "theme_color": "#5000e4",
+  "background_color": "#5000e4",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/"
+}
