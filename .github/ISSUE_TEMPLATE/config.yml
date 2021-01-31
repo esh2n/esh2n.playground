@@ -1,0 +1,11 @@
+# templateの使用を促す
+blank_issues_enabled: false
+
+# 外部リンクを使用する場合
+# contact_links:
+#   - name: GitHub Community Support
+#     url: https://github.community/
+#     about: Please ask and answer questions here.
+#   - name: GitHub Security Bug Bounty
+#     url: https://bounty.github.com/
+#     about: Please report security vulnerabilities here.
