@@ -1,48 +1,131 @@
-import React from 'react'
-
 import { Button } from './Button'
-// import '../stories/header.css'
+import tw, { styled } from 'twin.macro'
+import React from 'react'
+import { useRecoilState } from 'recoil'
+import { authActionState, loggedInUserState } from '../recoil/authProvider'
+import { useMutation } from '@apollo/client'
+import { SIGN_OUT } from '../apollo/mutation'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { isAdmin } from '../helpers/authHelpers'
+
+// styled tags
+const HeaderWrapper = styled.header`
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  ${tw`flex justify-center w-full h-32 border-b py-6 px-7 bg-indigo-100`};
+`
+
+const Nav = styled.nav`
+  ${tw`w-4/5 md:w-10/12 h-full flex items-center justify-between `};
+`
+
+const Logo = styled.img`
+  ${tw`w-11 sm:w-12 md:w-14 h-16 cursor-pointer`}
+  clip-path: circle(50% at 50% 50%);
+`
+
+const Ul = styled.ul`
+  .active {
+    ${tw`text-indigo-500`}
+  }
+  a {
+    ${tw`no-underline list-none text-white text-base md:text-lg lg:text-xl transition-all hover:underline`}
+  }
+  a + a {
+    ${tw`ml-6`}
+  }
+  ${tw`hidden sm:flex w-2/3 justify-start items-center py-0 px-16`}
+`
+
+const Actions = styled.div`
+  button + button {
+    ${tw`ml-3`}
+  }
+  ${tw`hidden sm:flex justify-between items-center`}
+`
+
+const HamMenu = styled.div`
+  ${tw`block sm:hidden`}
+`
 
 export const Header: React.FC = () => {
-  const user = null
+  const router = useRouter()
+
+  const [loggedInUser, setLoggedInUser] = useRecoilState(loggedInUserState)
+  const [, setAuthAction] = useRecoilState(authActionState)
+
+  const [signout] = useMutation<{
+    signout: { message: string }
+  }>(SIGN_OUT)
+
+  const handleSignOut = async () => {
+    try {
+      const response = await signout()
+      if (response?.data?.signout?.message) {
+        setLoggedInUser(null)
+
+        window.localStorage.setItem('signout', Date.now().toString())
+
+        router.push('/')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
-    <header>
-      <div className="wrapper">
-        <div>
-          <svg
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g fill="none" fillRule="evenodd">
-              <path
-                d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
-                fill="#FFF"
-              />
-              <path
-                d="M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z"
-                fill="#555AB9"
-              />
-              <path
-                d="M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z"
-                fill="#91BAF8"
-              />
-            </g>
-          </svg>
-          <h1>Acme</h1>
-        </div>
-        <div>
-          {user ? (
-            <Button size="small" label="Log out" />
+    <HeaderWrapper>
+      <Nav>
+        <Link href="/">
+          <>
+            <Logo src="./assets/svg/icon.svg" alt="" />
+          </>
+        </Link>
+        <Ul>
+          <Link href="/">
+            <a className={router.pathname === '/' ? 'active' : ''}>Home</a>
+          </Link>
+
+          <Link href="/playground">
+            <a className={router.pathname === '/playground' ? 'active' : ''}>
+              Playground
+            </a>
+          </Link>
+
+          {loggedInUser && (
+            <Link href="/dashboard">
+              <a className={router.pathname === '/dashboard' ? 'active' : ''}>
+                Dashboard
+              </a>
+            </Link>
+          )}
+
+          {loggedInUser && isAdmin(loggedInUser) && (
+            <Link href="/admin">
+              <a className={router.pathname === '/admin' ? 'active' : ''}>
+                Admin
+              </a>
+            </Link>
+          )}
+        </Ul>
+        <Actions>
+          {loggedInUser ? (
+            <Button onClick={() => handleSignOut()}>Sign Out</Button>
           ) : (
             <>
-              <Button size="small" label="Log in" />
-              <Button isPrimary size="small" label="Sign up" />
+              <Button onClick={() => setAuthAction('signin')}>ログイン</Button>
+
+              <Button isPrimary={false} onClick={() => setAuthAction('signup')}>
+                新規登録
+              </Button>
             </>
           )}
-        </div>
-      </div>
-    </header>
+        </Actions>
+        <HamMenu>
+          <FontAwesomeIcon icon={['fas', 'bars']} size="2x" />
+        </HamMenu>
+      </Nav>
+    </HeaderWrapper>
   )
 }

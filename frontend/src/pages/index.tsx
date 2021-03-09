@@ -4,7 +4,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = () => {
+const Home: NextPage<HomeProps> = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -68,3 +68,5 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export interface HomeProps {}
