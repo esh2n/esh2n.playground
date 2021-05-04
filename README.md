@@ -1,17 +1,19 @@
+ポートフォリオになる予定
+
 ## 🐿 使用予定技術など
 
 - **FRONTEND**
 
-  - NextJs(React js)
-  - esbuild
-  - recoil
-  - graphql
-  - apollo client
-  - twin.macro
-  - emotion
-  - jest
-  - cypress
-  - storybook
+  - NextJs
+    - esbuild
+    - recoil
+    - graphql
+    - apollo client
+    - twin.macro
+    - emotion
+    - jest
+    - cypress
+    - storybook
   - wasm(局所的に)
 
 - **BACKEND(API)**
