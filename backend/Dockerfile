@@ -1,5 +1,44 @@
-FROM hayd/alpine-deno:1.7.1
-RUN deno install -qAf --unstable https://raw.githubusercontent.com/denosaurs/denon/main/denon.ts
+# FROM hayd/alpine-deno:1.7.1
+# RUN deno install -qAf --unstable https://raw.githubusercontent.com/denosaurs/denon/main/denon.ts
+# WORKDIR /usr/app
+# COPY . .
+# ENTRYPOINT ["/usr/local/bin/denon"]
+
+# FROM hayd/alpine-deno:1.8.2
+# RUN deno install -qAf --unstable https://deno.land/x/denon@v2.2.0/denon.ts
+# WORKDIR /usr/app
+# COPY . .
+# # ENTRYPOINT ["/usr/local/bin/denon"]
+# ENTRYPOINT ["/home/deno/.deno/bin/denon"]
+
+# FROM hayd/alpine-deno:1.7.1
+# RUN deno install -qAf --unstable https://raw.githubusercontent.com/denosaurs/denon/main/denon.ts
+# WORKDIR /usr/app
+# COPY . .
+# ENTRYPOINT ["/usr/local/bin/denon"]
+
+FROM hayd/alpine-deno:1.10.1
+# RUN deno install -qAf --unstable https://deno.land/x/denon@v2.2.0/denon.ts
+
+
+# The port that your application listens to.
+# EXPOSE 1993
+
+# WORKDIR /app
 WORKDIR /usr/app
+
+
+# Prefer not to run as root.
+# USER deno
+
+# Cache the dependencies as a layer (the following two steps are re-run only when deps.ts is modified).
+# Ideally cache deps.ts will download and compile _all_ external files used in main.ts.
+# COPY deps.ts .
+# RUN deno cache deps.ts
+
+# These steps will be re-run upon each file change in your working directory:
 COPY . .
-ENTRYPOINT ["/usr/local/bin/denon"]
+# Compile the main app so that it doesn't need to be compiled each startup/entry.
+# RUN deno cache main.ts
+
+CMD ["deno", "run", "--allow-net", "--allow-env", "--allow-read", "--unstable", "src/index.ts"]

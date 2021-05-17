@@ -24,6 +24,7 @@ services:
       - ./frontend/src:/usr/app/src
     ports:
       - '3000:3000'
+    platform: linux/x86_64
   backend:
     depends_on:
       - db
@@ -43,11 +44,12 @@ services:
       - SENDGRID_API_KEY='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'
       - SEND_GRID_TEMPLATE_ID='d-b3d2b0f5a38546018a7a8400bc9f1fcc'
       - FRONTEND_URI=localhost:8080
-    command: start
+    # command: start
     volumes:
       - ./backend/src:/usr/app/src
     ports:
       - '3001:3001'
+    # platform: linux/x86_64
   db:
     container_name: db_postgres
     image: postgres:11-alpine
@@ -61,6 +63,7 @@ services:
     volumes:
       - postgres_db:/var/lib/postgresql/data
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    # platform: linux/x86_64
   nginx:
     container_name: reverse_proxy
     image: nginx:1.18.0-alpine
@@ -71,6 +74,7 @@ services:
     depends_on:
       - backend
       - frontend
+    platform: linux/x86_64
 
 volumes:
   postgres_db:
