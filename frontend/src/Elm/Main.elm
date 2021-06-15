@@ -1,4 +1,4 @@
-module Elm.Main exposing (main)
+module Main exposing (main)
 
 import Browser
 import Dict exposing (update)

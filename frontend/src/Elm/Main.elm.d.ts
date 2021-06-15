@@ -1,5 +1,5 @@
 export namespace Elm {
-  namespace Elm.Main {
+  namespace Main {
     interface App {
       ports: any
     }
