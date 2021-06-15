@@ -6,7 +6,7 @@ interface Props {}
 const Prompt: React.FC<Props> = () => {
   const ref = useRef(null)
   useEffect(() => {
-    e.Elm.Main.init({
+    e.Main.init({
       node: ref.current as HTMLElement,
       flags: null,
     })

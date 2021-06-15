@@ -1,5 +1,4 @@
-version: '3.7'
-
+version: '3.8'
 services:
   frontend:
     depends_on:
@@ -12,8 +11,8 @@ services:
     stdin_open: true
     tty: true
     environment:
-      - NEXT_PUBLIC_FRONTEND_TITLE=tips.gg
-      - NEXT_PUBLIC_FRONTEND_DESC=game tips community
+      - NEXT_PUBLIC_FRONTEND_TITLE=esh2n.playground
+      - NEXT_PUBLIC_FRONTEND_DESC=test
       - NODE_ENV=development
       - NEXT_PUBLIC_FRONTEND_URL=http://localhost:8080
       - NEXT_PUBLIC_BACKEND_URL=http://localhost:8080/api
@@ -22,6 +21,9 @@ services:
       - NEXT_PUBLIC_GOOGLE_CLIENT_ID=721540730222-mt4bbuntpqusnrpb2gk1go380j45tkml.apps.googleusercontent.com
     volumes:
       - ./frontend/src:/usr/app/src
+      - ./frontend/elm.json:/usr/app/elm.json
+      - cacheGardenElmStuffStarter:/app/elm-stuff
+      - cacheGardenDotElmStarter:/root/.elm
     ports:
       - '3000:3000'
   backend:
@@ -43,7 +45,7 @@ services:
       - SENDGRID_API_KEY='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'
       - SEND_GRID_TEMPLATE_ID='d-b3d2b0f5a38546018a7a8400bc9f1fcc'
       - FRONTEND_URI=localhost:8080
-    command: start
+    command: ["deno", "run", "--allow-net", "--allow-env", "--allow-read", "--unstable", "src/index.ts"]
     volumes:
       - ./backend/src:/usr/app/src
     ports:
@@ -71,6 +73,8 @@ services:
     depends_on:
       - backend
       - frontend
-
+    platform: linux/x86_64
 volumes:
   postgres_db:
+  cacheGardenElmStuffStarter:
+  cacheGardenDotElmStarter:
