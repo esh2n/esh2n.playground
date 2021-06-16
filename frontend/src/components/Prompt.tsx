@@ -10,6 +10,11 @@ const Prompt: React.FC<Props> = () => {
       node: ref.current as HTMLElement,
       flags: null,
     })
+    const f = async () => {
+      const { greet } = await import('@esh2n/wasm')
+      greet('from wasm')
+    }
+    f()
   }, [ref])
   return <div ref={ref} />
 }

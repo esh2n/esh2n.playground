@@ -1479,6 +1479,10 @@
   "resolved" "https://registry.npmjs.org/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz"
   "version" "0.2.5"
 
+"@esh2n/wasm@file:./wasm/pkg":
+  "resolved" "file:wasm/pkg"
+  "version" "0.2.0"
+
 "@eslint/eslintrc@^0.4.1":
   "integrity" "sha512-5v7TDE9plVhvxQeWLXDTvFvJBdH6pEsdnl2g/dAptmuFEPedQ4Erq5rsDsX+mvAM610IhNaO2W5V1dOOnDKxkQ=="
   "resolved" "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-0.4.1.tgz"
@@ -6500,24 +6504,6 @@
   "resolved" "https://registry.npmjs.org/es6-shim/-/es6-shim-0.35.6.tgz"
   "version" "0.35.6"
 
-"esbuild-loader@^2.8.0":
-  "integrity" "sha512-Tzc5nB5tVUmigXz6m4j1OYozJCjdix7E9vtd5RaE54fqz2Rz34Is9S8FbAf8uqR4xvQUBAXIi6Jkn1OeMxw2aQ=="
-  "resolved" "https://registry.npmjs.org/esbuild-loader/-/esbuild-loader-2.13.1.tgz"
-  "version" "2.13.1"
-  dependencies:
-    "esbuild" "^0.11.19"
-    "joycon" "^3.0.1"
-    "json5" "^2.2.0"
-    "loader-utils" "^2.0.0"
-    "tapable" "^2.2.0"
-    "type-fest" "^1.0.1"
-    "webpack-sources" "^2.2.0"
-
-"esbuild@^0.11.19":
-  "integrity" "sha512-iaiZZ9vUF5wJV8ob1tl+5aJTrwDczlvGP0JoMmnpC2B0ppiMCu8n8gmy5ZTGl5bcG081XBVn+U+jP+mPFm5T5Q=="
-  "resolved" "https://registry.npmjs.org/esbuild/-/esbuild-0.11.23.tgz"
-  "version" "0.11.23"
-
 "escalade@^3.0.2", "escalade@^3.1.1":
   "integrity" "sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw=="
   "resolved" "https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz"
@@ -9256,11 +9242,6 @@
     "import-local" "^3.0.2"
     "jest-cli" "^26.6.3"
 
-"joycon@^3.0.1":
-  "integrity" "sha512-SJcJNBg32dGgxhPtM0wQqxqV0ax9k/9TaUskGDSJkSFSQOEWWvQ3zzWdGQRIUry2j1zA5+ReH13t0Mf3StuVZA=="
-  "resolved" "https://registry.npmjs.org/joycon/-/joycon-3.0.1.tgz"
-  "version" "3.0.1"
-
 "js-string-escape@^1.0.1":
   "integrity" "sha1-4mJbrbwNZ8dTPp7cEGjFh65BN+8="
   "resolved" "https://registry.npmjs.org/js-string-escape/-/js-string-escape-1.0.1.tgz"
@@ -9368,7 +9349,7 @@
   dependencies:
     "minimist" "^1.2.0"
 
-"json5@^2.1.2", "json5@^2.1.3", "json5@^2.2.0", "json5@2.x":
+"json5@^2.1.2", "json5@^2.1.3", "json5@2.x":
   "integrity" "sha512-f+8cldu7X/y7RAJurMEJmdoKXGB/X550w2Nr3tTbezL6RwEE/iMcm+tZnXeoZtKuOq6ft8+CqzEkrIgx1fPoQA=="
   "resolved" "https://registry.npmjs.org/json5/-/json5-2.2.0.tgz"
   "version" "2.2.0"
@@ -14115,11 +14096,6 @@
   "resolved" "https://registry.npmjs.org/type-fest/-/type-fest-0.7.1.tgz"
   "version" "0.7.1"
 
-"type-fest@^1.0.1":
-  "integrity" "sha512-CsiQeFMR1jZEq8R+H59qe+bBevnjoV5N2WZTTdlyqxeoODQOOepN2+msQOywcieDq5sBjabKzTn3U+sfHZlMdw=="
-  "resolved" "https://registry.npmjs.org/type-fest/-/type-fest-1.1.3.tgz"
-  "version" "1.1.3"
-
 "type-is@~1.6.17", "type-is@~1.6.18":
   "integrity" "sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g=="
   "resolved" "https://registry.npmjs.org/type-is/-/type-is-1.6.18.tgz"
@@ -14654,14 +14630,6 @@
     "source-list-map" "^2.0.1"
     "source-map" "^0.6.1"
 
-"webpack-sources@^2.2.0":
-  "integrity" "sha512-bQsA24JLwcnWGArOKUxYKhX3Mz/nK1Xf6hxullKERyktjNMC4x8koOeaDNTA2fEJ09BdWLbM/iTW0ithREUP0w=="
-  "resolved" "https://registry.npmjs.org/webpack-sources/-/webpack-sources-2.2.0.tgz"
-  "version" "2.2.0"
-  dependencies:
-    "source-list-map" "^2.0.1"
-    "source-map" "^0.6.1"
-
 "webpack-sources@1.3.0":
   "integrity" "sha512-OiVgSrbGu7NEnEvQJJgdSFPl2qWKkWq5lHMhgiToIiN9w34EBnjYzSYs+VbL5KoYiLNtFFa7BZIKxRED3I32pA=="
   "resolved" "https://registry.npmjs.org/webpack-sources/-/webpack-sources-1.3.0.tgz"
@@ -14677,7 +14645,7 @@
   dependencies:
     "debug" "^3.0.0"
 
-"webpack@*", "webpack@^4 || ^5", "webpack@^4.36.0 || ^5.0.0", "webpack@^4.4.0 || ^5.9.0", "webpack@^4.40.0 || ^5.0.0", "webpack@^5.1.0", "webpack@^5.19.0", "webpack@>=2":
+"webpack@*", "webpack@^4 || ^5", "webpack@^4.36.0 || ^5.0.0", "webpack@^4.4.0 || ^5.9.0", "webpack@^5.1.0", "webpack@^5.19.0", "webpack@>=2":
   "integrity" "sha512-btZjGy/hSjCAAVHw+cKG+L0M+rstlyxbO2C+BOTaQ5/XAnxkDrP5sVbqWhXgo4pL3X2dcOib6rqCP20Zr9PLow=="
   "resolved" "https://registry.npmjs.org/webpack/-/webpack-5.37.1.tgz"
   "version" "5.37.1"

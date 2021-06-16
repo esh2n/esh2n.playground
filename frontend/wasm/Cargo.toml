@@ -1,0 +1,13 @@
+[package]
+name = "wasm"
+version = "0.2.0"
+authors = ["shunya endo <esh2n.bz@gmail.com>"]
+description = "A wasm project for esh2n.playground"
+edition = "2018"
+license = "MIT/Apache-2.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2"
