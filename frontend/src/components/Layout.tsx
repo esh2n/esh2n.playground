@@ -14,6 +14,7 @@ import SignUp from './SignUp'
 import { theme } from '../theme/index'
 
 import '../fontAwesome'
+import Prompt from './Prompt'
 
 interface Props {
   title?: string
@@ -88,6 +89,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             )}
           </>
         </DisplayedPage>
+        <Prompt />
       </>
     </ThemeProvider>
   )
