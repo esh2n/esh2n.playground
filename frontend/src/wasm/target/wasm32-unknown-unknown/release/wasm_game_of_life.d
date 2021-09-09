@@ -1,0 +1,1 @@
+/Users/esh2n/code/golang/src/github.com/zat2a-code/rust-playground/wasm-game-of-life/target/wasm32-unknown-unknown/release/wasm_game_of_life.wasm: /Users/esh2n/code/golang/src/github.com/zat2a-code/rust-playground/wasm-game-of-life/src/lib.rs /Users/esh2n/code/golang/src/github.com/zat2a-code/rust-playground/wasm-game-of-life/src/utils.rs
