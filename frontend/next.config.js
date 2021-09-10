@@ -5,6 +5,7 @@ const withPWA = require('next-pwa')
 const MODE =
   process.env.NODE_ENV === 'development' ? 'development' : 'production'
 const withDebug = MODE == 'development'
+const path = require('path')
 
 module.exports = withPWA({
   pwa: {
@@ -45,12 +46,6 @@ module.exports = withPWA({
         },
       })
     }
-    // config.experiments = {
-    //   asyncWebAssembly: true,
-    // }
-
-    // config.output.webassemblyModuleFilename =
-    //   (isServer ? '../' : '') + 'static/wasm/webassembly.wasm'
 
     return config
   },

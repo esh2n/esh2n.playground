@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { Universe } from '../wasm/pkg/wasm_game_of_life.js'
+import { Universe } from '@esh2n/wasm-game-of-life'
 
 interface Props {}
 
