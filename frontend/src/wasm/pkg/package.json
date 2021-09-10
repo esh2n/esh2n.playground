@@ -1,0 +1,16 @@
+{
+  "name": "@esh2n/wasm-game-of-life",
+  "collaborators": [
+    "esh2n<esh2n.bz@gmail.com>"
+  ],
+  "version": "0.2.2",
+  "files": [
+    "wasm_game_of_life_bg.wasm",
+    "wasm_game_of_life.js",
+    "wasm_game_of_life_bg.js",
+    "wasm_game_of_life.d.ts"
+  ],
+  "module": "wasm_game_of_life.js",
+  "types": "wasm_game_of_life.d.ts",
+  "sideEffects": false
+}
