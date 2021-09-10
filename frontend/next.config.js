@@ -1,11 +1,11 @@
 /* eslint-disable
    @typescript-eslint/no-var-requires
 */
+const { resolve } = require('path')
 const withPWA = require('next-pwa')
 const MODE =
   process.env.NODE_ENV === 'development' ? 'development' : 'production'
 const withDebug = MODE == 'development'
-const path = require('path')
 
 module.exports = withPWA({
   pwa: {
@@ -13,6 +13,7 @@ module.exports = withPWA({
     dest: 'public',
   },
   webpack: (config, { isServer }) => {
+    config.resolve.alias['~'] = resolve(__dirname, 'src')
     // Fixes packages that depend on fs/module module
     if (!isServer) {
       config.node = { fs: 'empty', module: 'empty' }
